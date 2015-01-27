@@ -1,8 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="nixclix">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NixClix</title>
+  <title>NixClix (Nikhil Dev Photography)</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +12,16 @@
 </head>
 <body>
 
-  <h1>NixClix Homepage works</h1>
+  <div ui-view></div>
+
+  <!-- Angular dependencies -->
+  <script type="text/javascript" src="assets/bower_components/angular/angular.min.js"></script>
+  <script type="text/javascript" src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <!-- Angular application files -->
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="components/home/home.js"></script>
+  <script type="text/javascript" src="components/weddings/weddings.js"></script>
 
 </body>
 </html>

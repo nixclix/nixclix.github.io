@@ -1,0 +1,13 @@
+{
+  "name": "assets",
+  "version": "0.0.0",
+  "authors": [
+    "Nikhil Dev"
+  ],
+  "license": "MIT",
+  "homepage": "www.nixclix.com",
+  "dependencies": {
+    "angular": "~1.3.x",
+    "angular-ui-router": "~0.2.13"
+  }
+}
