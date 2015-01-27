@@ -8,6 +8,7 @@
   "homepage": "www.nixclix.com",
   "dependencies": {
     "angular": "~1.3.x",
-    "angular-ui-router": "~0.2.13"
+    "angular-ui-router": "~0.2.13",
+    "bootstrap": "~3.3.2"
   }
 }
