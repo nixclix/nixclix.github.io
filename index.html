@@ -3,29 +3,51 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NixClix (Nikhil Dev Photography)</title>
+  <title>NixClix Photography</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="google-site-verification" content="tYisHZMnvgRYoeHdmmf4qZNlWcenelNl-t0GM8hbXHM" />
 
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
   <div class="container-fluid">
-    <div ui-view></div>
+
+    <!-- Including header.html -->
+    <ng-include src="'components/shared/header.html'"></ng-include>
+
+    <!-- Insertion point for state views -->
+    <div ui-view style="position: absolute; top: 61px;"></div>
   </div>
+
+  <!-- ############### DEPENDENCIES ############### -->
 
   <!-- Angular dependencies -->
   <script type="text/javascript" src="assets/bower_components/angular/angular.min.js"></script>
   <script type="text/javascript" src="assets/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-  <!-- Bootstrap dependencies -->
-  <script type="text/javascript" src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css"></link>
-  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"></link>
+  <!-- Foundation dependencies -->
+  <script type="text/javascript" src="assets/bower_components/foundation/js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="assets/bower_components/foundation/js/foundation.min.js"></script>
+  <link rel="stylesheet" href="assets/bower_components/foundation/css/foundation.css"></link>
+  <link rel="stylesheet" href="assets/bower_components/foundation/css/normalize.css"></link>
+  <script type="text/javascript" src="assets/bower_components/foundation/js/vendor/modernizr.js"></script>
+  <script type="text/javascript" src="assets/bower_components/foundation/js/vendor/fastclick.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+
+
+
+  <!-- ############### END OF DEPENDENCIES ############### -->
+
 
   <!-- Angular application files -->
   <link rel="stylesheet" href="assets/style.css"></link>
