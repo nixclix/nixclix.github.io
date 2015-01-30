@@ -4,6 +4,7 @@ angular.module('nixclix', [
   'ui.router',
 
   // Application components.
+  'components.constants',
   'components.home',
   'components.weddings'
 ])
@@ -18,6 +19,6 @@ angular.module('nixclix', [
 
 })
 
-.run(function($state) {
+.run(function($state, FLICKR_API_URL) {
   $state.go('home');
 });
