@@ -19,10 +19,12 @@ angular.module('components.home', [])
 .factory('HomeFactory', HomeFactory);
 
 function HomeController($scope, HomeFactory) {
+  var vm = this;
+
   HomeFactory.getRandomImages()
   .then(
     function(response) {
-      console.log(response)
+      vm.randomImages = response;
     }, function(error) {
       console.log(error);
     });
@@ -32,18 +34,19 @@ function HomeController($scope, HomeFactory) {
 function HomeFactory($http, $q, FLICKR_API_URL, EXTRAS_PARAMS) {
   console.log(FLICKR_API_URL);
 
-  var methodString = '&method=flickr.photos.search';
+  var methodString = '&method=flickr.people.getPublicPhotos';
   var homeFactory = {};
 
   homeFactory.getRandomImages = function() {
     return $http.get(FLICKR_API_URL + methodString,
     {
       params: {
+        per_page: 48,
         extras: EXTRAS_PARAMS
       }
     })
     .then(function(response) {
-      homeFactory.randomImages = response.data;
+      homeFactory.randomImages = response.data.photos;
       return homeFactory.randomImages;
     }, function(error) {
       return $q.reject(error);
