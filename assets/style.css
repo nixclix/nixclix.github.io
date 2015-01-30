@@ -25,6 +25,10 @@ header {
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05);
 }
 
+.header-menu-links {
+  font-size: 1.65em;
+}
+
 /* Exclusive helper classes to bust some repetitive tasks */
 .white-text {
   color: white;
