@@ -1,8 +1,6 @@
 'use strict'
 
 angular.module('components.home', [
-  'ngDialog',
-
   'components.shared.constants',
   'components.shared.utils'
   ])
@@ -22,7 +20,7 @@ angular.module('components.home', [
 .controller('HomeController', HomeController)
 .factory('HomeFactory', HomeFactory);
 
-function HomeController($scope, HomeFactory, Utils, ngDialog) {
+function HomeController($scope, HomeFactory, Utils) {
   var vm = this;
 
   HomeFactory.getRandomImages()
