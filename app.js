@@ -4,7 +4,8 @@ angular.module('nixclix', [
   'ui.router',
 
   // Application components.
-  'components.constants',
+  'components.shared.constants',
+  'components.shared.utils',
   'components.home',
   'components.weddings'
 ])

@@ -7,8 +7,5 @@
   "license": "MIT",
   "homepage": "www.nixclix.com",
   "dependencies": {
-    "angular": "~1.3.x",
-    "angular-ui-router": "~0.2.13",
-    "foundation": "~5.5.0"
   }
 }

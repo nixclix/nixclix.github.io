@@ -1,6 +1,11 @@
 'use strict'
 
-angular.module('components.home', [])
+angular.module('components.home', [
+  'ngDialog',
+
+  'components.shared.constants',
+  'components.shared.utils'
+  ])
 
 .config(function($stateProvider, $urlRouterProvider) {
   var partialsPath =  'components/home/';
@@ -9,8 +14,7 @@ angular.module('components.home', [])
   // Home
   .state('home', {
     url: '/',
-    templateUrl: partialsPath + 'home.html',
-    controller: 'HomeController'
+    templateUrl: partialsPath + 'home.html'
   });
 
 })
@@ -18,17 +22,19 @@ angular.module('components.home', [])
 .controller('HomeController', HomeController)
 .factory('HomeFactory', HomeFactory);
 
-function HomeController($scope, HomeFactory) {
+function HomeController($scope, HomeFactory, Utils, ngDialog) {
   var vm = this;
 
   HomeFactory.getRandomImages()
   .then(
     function(response) {
-      vm.randomImages = response;
+      vm.randomImages = Utils.getRandom(response.photo, 48);
     }, function(error) {
       console.log(error);
     });
 
+  vm.openImage = function(imageObject) {
+  };
 }
 
 function HomeFactory($http, $q, FLICKR_API_URL, EXTRAS_PARAMS) {
@@ -41,7 +47,7 @@ function HomeFactory($http, $q, FLICKR_API_URL, EXTRAS_PARAMS) {
     return $http.get(FLICKR_API_URL + methodString,
     {
       params: {
-        per_page: 48,
+        per_page: 10000,
         extras: EXTRAS_PARAMS
       }
     })

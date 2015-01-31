@@ -1,8 +1,16 @@
 <section ng-controller="HomeController as vm">
 
-  <ul class="small-block-grid-4 medium-block-grid-8 large-block-grid-12">
-    <li ng-repeat="image in vm.randomImages.photo">
-      <img src="{{ image.url_sq }}" />
+  <ul class="small-block-grid-3 medium-block-grid-6 large-block-grid-8">
+    <li ng-repeat="image in vm.randomImages" style="padding: 1px;">
+      <a>
+        <img class="hoverableImage" src="{{ image.url_q }}" />
+      </a>
     </li>
   </ul>
+
+
 </section>
+<!--
+<div class="overlay">
+  This will be the thing
+</div> -->
