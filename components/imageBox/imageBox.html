@@ -1,0 +1,17 @@
+<div
+  id="imageBox"
+  ng-controller="ImageBoxController as vm"
+  ng-show="vm.showStatus">
+  <div class="text-right">
+    <button class="button tiny" ng-click="vm.closeImageBox();">
+      Close
+    </button>
+  </div>
+
+  <div class="text-center">
+    <ul class="small-block-grid-1">
+      <img src="{{ vm.image.url_l }}"/>
+    </ul>
+  </div>
+
+</div>

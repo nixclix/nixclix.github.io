@@ -2,7 +2,8 @@
 
 angular.module('components.home', [
   'components.shared.constants',
-  'components.shared.utils'
+  'components.shared.utils',
+  'components.imageBox'
   ])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -20,19 +21,21 @@ angular.module('components.home', [
 .controller('HomeController', HomeController)
 .factory('HomeFactory', HomeFactory);
 
-function HomeController($scope, HomeFactory, Utils) {
+function HomeController($scope, HomeFactory, Utils, ImageBoxFactory) {
   var vm = this;
 
   HomeFactory.getRandomImages()
   .then(
     function(response) {
-      vm.randomImages = Utils.getRandom(response.photo, 48);
+      vm.randomImages = Utils.getRandom(response.photo, 24);
     }, function(error) {
       console.log(error);
     });
 
   vm.openImage = function(imageObject) {
+    ImageBoxFactory.showImage(imageObject);
   };
+
 }
 
 function HomeFactory($http, $q, FLICKR_API_URL, EXTRAS_PARAMS) {

@@ -6,6 +6,7 @@ angular.module('nixclix', [
   // Application components.
   'components.shared.constants',
   'components.shared.utils',
+  'components.imageBox',
   'components.home',
   'components.weddings'
 ])
