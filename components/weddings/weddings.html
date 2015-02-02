@@ -1,1 +1,12 @@
-Weddings home
+<section ng-controller="WeddingsController as vm">
+
+  <ul class="small-block-grid-3 medium-block-grid-6 large-block-grid-8">
+    <li ng-repeat="image in vm.randomImages" style="padding: 1px;">
+      <a href ng-click="vm.openImage(image);">
+        <img class="hoverableImage" src="{{ image.url_q }}" />
+      </a>
+    </li>
+  </ul>
+
+
+</section>
