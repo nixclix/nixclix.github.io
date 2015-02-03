@@ -26,8 +26,6 @@
     <!-- Including header.html -->
     <ng-include src="'components/shared/header.html'"></ng-include>
 
-    <div ng-include="'components/imageBox/imageBox.html'"></div>
-
     <!-- Insertion point for state views -->
     <div ui-view style="position: relative; top: 5px;" class="text-center"></div>
   </div>
@@ -50,10 +48,6 @@
     $(document).foundation();
   </script>
 
-  <!-- ngDialog -->
-  <script type="text/javascript" src="assets/bower_components/ngDialog/js/ngDialog.min.js"></script>
-  <link rel="stylesheet" href="assets/bower_components/ngDialog/css/ngDialog.min.css"></link>
-
   <!-- lodash -->
   <script type="text/javascript" src="//cdn.jsdelivr.net/lodash/3.0.0/lodash.compat.min.js"></script>
 
@@ -66,7 +60,8 @@
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="components/shared/constants.js"></script>
   <script type="text/javascript" src="components/shared/utils.js"></script>
-  <script type="text/javascript" src="components/imageBox/imageBox.js"></script>
+  <script type="text/javascript" src="components/photoset/photoset.js"></script>
+  <script type="text/javascript" src="components/photoViewer/photoViewer.js"></script>
   <script type="text/javascript" src="components/home/home.js"></script>
   <script type="text/javascript" src="components/weddings/weddings.js"></script>
 

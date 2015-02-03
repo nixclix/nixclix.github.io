@@ -1,0 +1,16 @@
+<div
+  id="photoViewer"
+  ng-controller="PhotoViewerController as vm">
+  <div class="text-right">
+    <button class="button tiny" ng-click="vm.showStatus=false">
+      Close
+    </button>
+  </div>
+
+  <div class="text-center">
+    <ul class="small-block-grid-1">
+      <img ng-src="{{ vm.image.url_c }}" />
+    </ul>
+  </div>
+
+</div>

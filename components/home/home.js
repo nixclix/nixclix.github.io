@@ -3,7 +3,7 @@
 angular.module('components.home', [
   'components.shared.constants',
   'components.shared.utils',
-  'components.imageBox'
+  'components.photoViewer'
   ])
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -21,43 +21,47 @@ angular.module('components.home', [
 .controller('HomeController', HomeController)
 .factory('HomeFactory', HomeFactory);
 
-function HomeController($scope, HomeFactory, Utils, ImageBoxFactory) {
+function HomeController($scope, HomeFactory, Utils) {
   var vm = this;
 
-  HomeFactory.getRandomImages()
-  .then(
-    function(response) {
-      vm.randomImages = Utils.getRandom(response.photo, 24);
-    }, function(error) {
-      console.log(error);
-    });
+  console.log(HomeFactory.randomImages);
 
-  vm.openImage = function(imageObject) {
-    ImageBoxFactory.showImage(imageObject);
-  };
-
+  if (HomeFactory.randomImages.length == 0) {
+    HomeFactory.getRandomImages()
+    .then(
+      function(response) {
+        vm.randomImages = Utils.getRandom(response.photo, 24);
+      }, function(error) {
+        console.log(error);
+      });
+  } else {
+    vm.randomImages = Utils.getRandom(HomeFactory.randomImages.photo, 24);
+  }
 }
 
 function HomeFactory($http, $q, FLICKR_API_URL, EXTRAS_PARAMS) {
   console.log(FLICKR_API_URL);
 
   var methodString = '&method=flickr.people.getPublicPhotos';
-  var homeFactory = {};
+  var homeFactory = {
+    randomImages: []
+  };
 
   homeFactory.getRandomImages = function() {
     return $http.get(FLICKR_API_URL + methodString,
-    {
-      params: {
-        per_page: 10000,
-        extras: EXTRAS_PARAMS
-      }
-    })
-    .then(function(response) {
-      homeFactory.randomImages = response.data.photos;
-      return homeFactory.randomImages;
-    }, function(error) {
-      return $q.reject(error);
-    });
+      {
+        params: {
+          per_page: 10000,
+          extras: EXTRAS_PARAMS
+        }
+      })
+      .then(function(response) {
+        homeFactory.randomImages = response.data.photos;
+        return homeFactory.randomImages;
+      }, function(error) {
+        return $q.reject(error);
+      });
+
   }
 
   return homeFactory;
