@@ -1,4 +1,5 @@
 <div
+open
   id="photoViewer"
   ng-controller="PhotoViewerController as vm">
   <div class="text-right">
@@ -9,7 +10,7 @@
 
   <div class="text-center">
     <ul class="small-block-grid-1">
-      <img ng-src="{{ vm.image.url_c }}" />
+      <img ng-src="{{ vm.image.url_c }}" ng-swipe-left="vm.nextImage()" ng-swipe-right="vm.previousImage()"/>
     </ul>
   </div>
 
